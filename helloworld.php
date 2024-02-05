@@ -137,22 +137,22 @@
    echo '<h2>Excersise iteration of the types:</h2>';
 
    $myAssocArray = [
-      'citrus' => [
+      'Citrus' => [
          "orange",
          "lemon",
          "lime",
       ],
-      'berries' => [
+      'Berries' => [
          "strawberry",
          "blueberry",
          "raspberry",
       ],
-      'tropical' => [
+      'Tropical' => [
          "banana",
          "mango",
          "pineapple",
       ],
-      'hapis' => [
+      'Hapis' => [
          "apple",
          "pear",
          "peach",
@@ -167,6 +167,19 @@
       }
       echo "</ul>";
    }
+
+   echo '<hr>';
+   echo '<h2>Functions:</h2>';
+   echo '<h3> Function Calculation:</h3>';
+
+   // functions in PHP
+   function calculate($a, $b)
+   {
+      return $a + $b;
+   }
+   $resultOfCalculation = calculate(5, 10);
+
+   echo "The result of the calculation is: " . $resultOfCalculation;
    ?>
 </body>
 
