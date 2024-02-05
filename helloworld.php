@@ -180,7 +180,24 @@
    $resultOfCalculation = calculate(5, 10);
 
    echo "The result of the calculation is: " . $resultOfCalculation;
+
+
+   function calculateTotal($price, $tax = false)
+   {
+      if ($tax) {
+         $priceVat = $price + ($price * $tax) / 100;
+         return $priceVat + $price;
+      } else {
+         return $price;
+      }
+   }
    ?>
+
+   <form action="php.php" method="post">
+      <input type="text" name="price" placeholder="Enter the price">
+      <input type="text" name="tax" placeholder="Enter the tax">
+      <input type="submit" value="Calculate">
+   </form> $_post = $_POST['price'];
 </body>
 
 </html>
