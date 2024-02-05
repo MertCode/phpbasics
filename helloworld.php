@@ -133,7 +133,40 @@
       }
       echo "</ul>";
    }
+   echo '<hr>';
+   echo '<h2>Excersise iteration of the types:</h2>';
 
+   $myAssocArray = [
+      'citrus' => [
+         "orange",
+         "lemon",
+         "lime",
+      ],
+      'berries' => [
+         "strawberry",
+         "blueberry",
+         "raspberry",
+      ],
+      'tropical' => [
+         "banana",
+         "mango",
+         "pineapple",
+      ],
+      'hapis' => [
+         "apple",
+         "pear",
+         "peach",
+      ],
+   ];
+
+   foreach ($myAssocArray as $fruitType => $fruits) {
+      echo "<b>" . $fruitType . "</b><br>";
+      echo "<ul>";
+      foreach ($fruits as $fruit) {
+         echo "<li>$fruit</li>";
+      }
+      echo "</ul>";
+   }
    ?>
 </body>
 
