@@ -181,6 +181,16 @@
 
    echo "The result of the calculation is: " . $resultOfCalculation;
 
+   function makePDF($name, $email, $tel)
+   {
+      echo '<h1<PDF Document Registration</h1>';
+      echo "The name is: " . $name . "<br>";
+      echo "The email is: " . $email . "<br>";
+      echo "The telephone number is: " . $tel . "<br>";
+   }
+
+   makePDF($databasename, 'example@test.com', '1234567890');
+
 
    function calculateTotal($price, $tax = false)
    {
