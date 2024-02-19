@@ -1,36 +1,44 @@
 <?php
-function showCurrentDate()
-{
-
-   $days = array("zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag");
-   $months = array("januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december");
-   $dayOfWeek = $days[date("w")];
-   $dayOfMonth = date("j");
-   $month = $months[date("n") - 1];
-   $year = date("Y");
-   $hour = date("G");
-   $minute = date("i");
-   $second = date("s");
-
-   echo "Het is vandaag $dayOfWeek $dayOfMonth $month $year en het is $hour:$minute:$second uur";
+function showCurrentDate() {
+    // Define the days of the week and months in Dutch
+    $days = array('Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag');
+    $months = array('januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december');
+    
+    // Get the current day of the week, month, and year
+    $dayOfWeek = $days[date('w')];
+    $dayOfMonth = date('j');
+    $month = $months[date('n') - 1]; // Adjust for 0-based index
+    $year = date('Y');
+    
+    // Output the formatted date in Dutch notation
+    echo "$dayOfWeek, $dayOfMonth $month $year";
 }
 
-$conn = mysqli_connect("localhost", "root", "root", "bookings");
+$conn = mysqli_connect("localhost", "root", "welcome123", "themadag");
 if (!$conn) {
-   echo "Connection failed: " . mysqli_connect_error();
-   exit;
+    echo "Connection failed: " . mysqli_connect_error();
+    exit;
 }
 
-function store($name, $email, $tel, $age, $location)
-{
-   global $conn;
-   $currentDate = date("Y-m-d H:i:s");
-   $sql = "INSERT INTO bookings VALUES (name, email, tel, age, location) VALUES ('$name', '$email', '$tel', '$age', '$location')";
-   $conn->query($sql);
-   if (mysqli_query($conn, $sql)) {
-      echo "New record created successfully";
-   } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-   }
-   mysqli_close($conn);
+//print_r($conn);
+
+function store ($name, $email, $tel, $tday_id) {
+    // check if mail adres is already present for the specific themeday
+    // ... to be developed! ;)
+    global $conn;
+    $currentdate = date("Y-m-d H:i:s");
+    $sql = "INSERT INTO registrations VALUES (NULL,'$name', '$email', '$tel', '$tday_id','$currentdate')";
+    $conn->query($sql);
+}
+
+// create a function to convert the mysql date to a Belgian format
+function convertToBelgianFormat($mysqlDate) {
+    // Convert the MySQL date to a timestamp
+    $timestamp = strtotime($mysqlDate);
+    
+    // Format the timestamp in Belgian format
+    $belgianDate = date('d-m-Y', $timestamp);
+    
+    // Return the Belgian formatted date
+    return $belgianDate;
 }

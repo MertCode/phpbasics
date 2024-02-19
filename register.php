@@ -1,31 +1,29 @@
 <?php
-
 print_r($_POST);
-echo '<br>';
 
 $name = $_POST['name'];
 $email = $_POST['email'];
 $tel = $_POST['tel'];
 
-echo "Hello " . $name . "<br>";
-echo "<p>Please find your details below: </p><br>";
-echo "<h2>Email: " . $email . "</h2> <br>";
-echo "<h3>Tel: " . $tel . "</h3><br>";
+echo '<h1>Hello '.$name.'</h1>';
+echo '<p>Please find your details below</p>';
+echo '<h2>'.$email.'</h2>';
+echo '<h3>'.$tel.'</h3>';
 
+// inject in the database or send an email
+// mail() will work on production server - not locally - no mailserver present!
+// mail ($email, 'Registration', 'Hello '.$name.'!');
 
-function saveStringToFile($name, $email, $tel)
-{
-   // this wil open a new file and append to it
-   $file = fopen("data.csv", "a");
-   // provice the current date and time in specific format
-   $currentdate = date("Y-m-d H:i:s");
-   // write to file and close it used /n to create a new line
-   $string = $currentdate . " " . $name . " " . $email . " " . $tel . "\n";
-   fwrite($file, $string);
-   fclose($file);
+function saveStringToFile($name, $email, $tel) {
+    // open or create a new file and append to it
+    $file = fopen("result.csv", "a");
+    // provice a prefered format for the date object
+    $currendate = date('Y-m-d H:i:s');
+    // write to file and close... use "\r\n" for new line
+    $string = $currendate . "," . $tel . "," . $email . "\r";
+    fwrite($file, $string);
+    fclose($file);
 }
 
 saveStringToFile($name, $email, $tel);
-echo "Your details have been saved to a file";
-echo '<br>';
-echo '<a href="register.html">Go back</a>';
+?>
