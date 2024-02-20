@@ -81,6 +81,8 @@
 
          <button type="submit">Login</button>
       </form>
+      <p>Need an account? <a href="register.php">Register</a></p>
+
    </div>
 </body>
 
