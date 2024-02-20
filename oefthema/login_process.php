@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Database configuration (replace with your actual settings)
+// Database configuration 
 $db_host = 'localhost:3306';
 $db_user = 'mertcode';
 $db_pass = '';
