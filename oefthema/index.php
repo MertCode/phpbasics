@@ -5,7 +5,7 @@ session_start();
 
 // Redirect if not logged in
 if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-    header('Location: login.php');
+    header('Location: /admin/login.php');
     exit; // Ensure redirection takes place
 }
 
