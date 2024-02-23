@@ -34,7 +34,8 @@ if (isset($_POST['email'])) {
 
 ?>
 <h1>
-   <span class="fat">Login</span>Admin Account
+   <span class="fat">Login</span> <br>
+   Admin Account
 </h1>
 
 <form action="login.php" method="post">
@@ -47,6 +48,14 @@ if (isset($_POST['email'])) {
       <input type="password" class="form-control" id="password" name="password" required>
    </div>
    <button type="submit" class="btn btn-success">Login</button>
+   <!-- 
+   dont have an account?
+   -->
+   <p>
+      Don't have an account?
+      <a href="register.php">Register</a>
+
+   </p>
 </form>
 
 <?php include 'footer.php'; ?>
