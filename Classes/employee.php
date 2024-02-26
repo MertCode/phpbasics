@@ -31,6 +31,7 @@ class Employee
 
    // Methode om naam in te stellen
    public function setName($name)
+
    {
       $this->name = $name;
    }
@@ -44,7 +45,12 @@ class Employee
    // Methode om positie in te stellen
    public function setPosition($position)
    {
-      $this->position = $position;
+      $allowed_positions = ["Full Stack Web Developer", "Frontend Developer", "Backend Developer"];
+      if (in_array($position, $allowed_positions)) {
+         $this->position = $position;
+      } else {
+         echo "Positie is niet toegestaan.";
+      }
    }
 
    // Methode om salaris in te stellen
