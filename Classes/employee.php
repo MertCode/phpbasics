@@ -73,7 +73,7 @@ $employee1 = new Employee("Mert", 25, "Full Stack Web Developer", "$60,000", "IT
 echo $employee1->getProperty('name') . "\n"; // Output: Mert
 echo $employee1->getProperty('salary') . "\n"; // Output: $60,000
 echo $employee1->getProperty('department') . "\n"; // Output: IT
-echo $employee1->getProperty('address') . "\n"; // Output: Eigenschap 'address' bestaat niet.
+// echo $employee1->getProperty('address') . "\n"; // Output: Eigenschap 'address' bestaat niet.
 
 // Roep de methode aan
 echo $employee1->introduce(); // Output: Hallo, mijn naam is Mert. Ik ben 26 jaar oud, werk als een Full Stack Web Developer op de afdeling IT, en verdien $60,000.
