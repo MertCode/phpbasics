@@ -59,7 +59,7 @@ class Employee
       $this->department = $department;
    }
 
-   // Methode
+   // Methode voor te introduceren
    public function introduce()
    {
       return "Hallo, mijn naam is $this->name. Ik ben $this->age jaar oud, werk als een $this->position op de afdeling $this->department, en verdien $this->salary.";
@@ -67,7 +67,7 @@ class Employee
 }
 
 // Een instantie van de klasse maken
-$employee1 = new Employee("Mert", 26, "Full Stack Web Developer", "$60,000", "IT");
+$employee1 = new Employee("Mert", 25, "Full Stack Web Developer", "$60,000", "IT");
 
 // Gebruik van de universele getter
 echo $employee1->getProperty('name') . "\n"; // Output: Mert
